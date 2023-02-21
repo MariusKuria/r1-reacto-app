@@ -32,7 +32,27 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
+  }
+}
+
+.card {
+  .card-header {
+    background-color: darkseagreen;
+
+    h2 {
+      color: coral;
+    }
+  }
+
+  li {
+    color: skyblue;
+    background-color: darkgreen;
+
+    &.big {
+      letter-spacing: 12px;
+    }
   }
 }
