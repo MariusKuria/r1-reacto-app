@@ -15,6 +15,8 @@ function App() {
   //zemiau apsirasom state'us
   const [h2Color, setH2Color] = useState('crimson'); // tokie state'ai vadinami hookais.
   const [count, setCount] = useState(1);
+  const [wish, setWish] = useState('*--*');
+  const [size, setSize] = useState(0)
 
   const clickIt = () => {
     setH2Color(c => c === 'crimson' ? 'yellow' : 'crimson');
@@ -22,6 +24,13 @@ function App() {
 
   const add1 = () => {
     setCount(c => c + 1);
+  }
+
+  const doWish = e => {
+    setWish(e.target.value);
+  }
+  const doWishSize = e => {
+    setSize(e.target.value)
   }
 
   return (
@@ -41,7 +50,20 @@ function App() {
                 </li>)
             }
           </ul>
+
+          <div className="m-3">
+            <label className="form-label">Enter yout wish</label>
+            <input type="text" className="form-control" onChange={doWish} value={wish} />
+          </div>
+
+          <div className="m-3">
+            <label className="form-label">How Big <i>{size}</i></label>
+            <input type="range" className="form-control" min='0' max='10' onChange={doWishSize} value={size} />
+          </div>
+
         </div>
+
+
 
         <button type="button" className="btn btn-warning mt-4" onClick={clickIt}>CLICK</button>
         <button type="button" className="btn btn-danger mt-4" onClick={add1}>+1</button>
